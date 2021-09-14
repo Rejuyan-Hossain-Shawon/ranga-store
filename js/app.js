@@ -9,7 +9,9 @@ const loadProducts = () => {
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    console.log(product);
+
+
+
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -22,7 +24,7 @@ const showProducts = (products) => {
       <h2>Price: $ ${product.price}</h2>
       <p>Review Person :${product.rating.count}<br>Ratings:${product.rating.rate}</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button id="details-btn" onclick="displayDetails('${product.description}')" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -90,6 +92,22 @@ const updateTotal = () => {
   // shopkeeper cant exchange the float value thats cause we have to round that figure
   document.getElementById("total").innerText = Math.round(grandTotal);
 };
+
+// display single element details 
+const displayDetails = (pd) => {
+  const p = document.getElementById("details");
+  p.innerText = pd;
+  p.style.display = "block";
+}
+// buy btn event
+const buyBtn = () => {
+  const main = document.getElementById("main");
+
+  main.style.display = "none";
+  const h1 = document.getElementById("header-text");
+  h1.innerText = " Thank you for purching from us"
+}
+
 loadProducts();
 
 

@@ -18,23 +18,32 @@
 </head>
 
 <body>
-  <header></header>
-  <main class="main">
+  <header>
+    <h1 class=" text-center" id="header-text"></h1>
+  </header>
+  <main id="main" class="main ">
+    <!-- search field div -->
     <div class="search-field">
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
+          autocomplete="off" id="search-btn">
           Search
         </button>
       </div>
     </div>
+    <!-- single product details display -->
+    <div id="details" class="text-center ">
+      <p></p>
+    </div>
+    <!-- all product display area -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
 
         </div>
       </div>
+      <!-- my cart area -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -80,7 +89,7 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button onclick="buyBtn()" class="btn btn-primary text-center">Buy Now</button>
           </div>
         </div>
       </div>
